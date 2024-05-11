@@ -125,12 +125,3 @@ all_instance_names = myModel.rootAssembly.instances.keys()
 merged_instance_name = 'crack-all'
 myModel.rootAssembly.InstanceFromBooleanMerge(name=merged_instance_name, instances=[myModel.rootAssembly.instances[name] for name in all_instance_names], originalInstances=DELETE, keepIntersections=ON)
 
-#Matrix assembly
-a1 = myModel.rootAssembly
-a1.DatumCsysByDefault(CARTESIAN)
-p = myModel.parts['panel']
-a1.Instance(name='Base', part=p, dependent=ON)
-
-#Matrix cutting
-a1 = myModel.rootAssembly
-a1.InstanceFromBooleanCut(name='sample', instanceToBeCut=myModel.rootAssembly.instances['Base'], cuttingInstances=(a1.instances['crack-all-1'], ), originalInstances=SUPPRESS)
