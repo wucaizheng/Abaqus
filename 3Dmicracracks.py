@@ -124,4 +124,4 @@ all_instance_names = myModel.rootAssembly.instances.keys()
 # Merge all instances into one instance
 merged_instance_name = 'crack-all'
 myModel.rootAssembly.InstanceFromBooleanMerge(name=merged_instance_name, instances=[myModel.rootAssembly.instances[name] for name in all_instance_names], originalInstances=DELETE, keepIntersections=ON)
-
+#
